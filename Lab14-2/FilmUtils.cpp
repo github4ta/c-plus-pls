@@ -41,3 +41,16 @@ void print(vector<Film>& films)
         print(films[i]);
     }
 }
+
+bool compareByNameAscending(const Film& a, const Film& b) { return a.name < b.name; }
+bool compareByNameDescending(const Film& a, const Film& b) { return a.name > b.name; }
+bool compareByYear(const Film& a, const Film& b) { return a.year < b.year; }
+bool compareByCountry(const Film& a, const Film& b) { return a.country < b.country; }
+bool compareByAverageRatingAscending(const Film& a, const Film& b) { return a.average_rating < b.average_rating; }
+bool compareByAverageRatingDescending(const Film& a, const Film& b) { return a.average_rating > b.average_rating; }
+
+vector<Film> deleteFilm(vector<Film> films, int position)
+{
+    films.erase(films.begin() + position - 1);
+    return films;
+}

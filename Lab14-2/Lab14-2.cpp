@@ -8,21 +8,29 @@
 
 using namespace std;
 
+void sortMenu(vector<Film>& films);
+
 int main()
 {
     bool a = true;
     vector<Film> films;
 
     while (a) {
+        cout << "0 - Сортировать" << endl;
         cout << "1 - Создать массив данных" << endl;
         cout << "2 - Считать данные из файла" << endl;
         cout << "3 - Записать в файл" << endl;
-        cout << "4 - Выход" << endl;
+        cout << "4 - Удалить фильм" << endl;
+        cout << "5 - Выход" << endl;
         string n_line;
         getline(cin, n_line);
         int n = stoi(n_line);
         switch (n)
         {
+        case 0: {
+            sortMenu(films);
+            break;
+        }
         case 1: {
             cout << "Введите количество фильмов: ";
             string m_line;
@@ -40,7 +48,7 @@ int main()
             getline(cin, name);
             cout << endl;
 
-            readFilmsFromFileAndCout(name);
+            films = readFilmsFromFileAndCout(name);
 
             break;
         }
@@ -54,7 +62,22 @@ int main()
 
             break;
         }
-        case 4: {
+        case 4:
+        {
+            cout << "Введите позицию фильма: ";
+            string position_line;
+            getline(cin, position_line);
+            cout << endl;
+
+            int position = stoi(position_line);
+            films = deleteFilm(films, position);
+
+            cout << "\n>>> Остались фильмы <<<";
+            print(films);
+
+            break;
+        }
+        case 5: {
             a = false;
             break;
         }

@@ -37,7 +37,7 @@ void writeFilmsIntoFile(vector<Film> films, string name)
 }
 
 
-void readFilmsFromFileAndCout(string name)
+vector<Film> readFilmsFromFileAndCout(string name)
 {
     ifstream H;
     H.open(name + ".txt");
@@ -91,4 +91,6 @@ void readFilmsFromFileAndCout(string name)
     print(films);
 
     H.close();
+
+    return films;
 }
